@@ -25,6 +25,8 @@ class Rem(Tk):
                                          password='')
                         self.myCursor = self.conn.cursor()
                         # self.myCursor.execute("Delete from tbl_student where Stud_ID = %s",[a.get()])
+                        
+                        #Adding an extra condtion to a query to retrieve only active records from the database.
                         self.myCursor.execute("Update tbl_student Set Active = '0' where Stud_ID = %s",[a.get()])
                         self.conn.commit()
                         self.myCursor.close()
